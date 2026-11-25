@@ -1,0 +1,7 @@
+# Lokale Entwicklungsdateien – nicht nach GitHub
+.claude/
+deploy/
+_version1/
+*.zip
+Thumbs.db
+.DS_Store

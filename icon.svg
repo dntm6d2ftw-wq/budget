@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- App-Icon "Budget": Wallet mit Karten, iOS-Blau. Vollflächig (iOS rundet selbst ab). -->
+  <defs>
+    <linearGradient id="bg" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="360" y2="660">
+      <stop offset="0" stop-color="#4C9DFF"/>
+      <stop offset="1" stop-color="#0A57D6"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" fill="url(#bg)"/>
+  <!-- Karten hinter dem Wallet -->
+  <rect x="140" y="112" width="232" height="150" rx="24" fill="#FFFFFF" fill-opacity="0.45"/>
+  <rect x="118" y="146" width="276" height="150" rx="26" fill="#FFFFFF" fill-opacity="0.72"/>
+  <!-- Wallet-Körper -->
+  <rect x="92" y="194" width="328" height="214" rx="44" fill="#FFFFFF"/>
+  <!-- Verschluss-Lasche -->
+  <rect x="300" y="262" width="120" height="80" rx="40" fill="#DDE9FF"/>
+  <circle cx="342" cy="302" r="15" fill="#1A6CF0"/>
+</svg>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <!-- viewport-fit=cover: Inhalt läuft bis unter Dynamic Island / Home-Balken; Abstände regeln die Safe-Area-Insets im CSS -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Budget</title>
+  <meta name="description" content="Monatsbudget nach Gehaltszyklus – Fixkosten, Abos, Alltag, Tanken, Freizeit. Als App auf dem Home-Bildschirm installierbar." />
+
+  <!-- PWA / Android -->
+  <link rel="manifest" href="./manifest.json" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#F5F5F7" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
+  <meta name="application-name" content="Budget" />
+
+  <!-- iOS: Home-Bildschirm-App -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Budget" />
+  <meta name="format-detection" content="telephone=no" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./icon-180.png" />
+
+  <!-- Icons -->
+  <link rel="icon" type="image/svg+xml" href="./icon.svg" />
+  <link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png" />
+
+  <link rel="stylesheet" href="./css/app.css" />
+</head>
+<body>
+  <!-- Hier rendert die App entweder den Login-Screen oder die eigentliche App -->
+  <div id="root"><div class="spinner" aria-label="Lädt"></div></div>
+
+  <!-- iOS-Modal-Sheet (Formulare, Einstellungen, Archiv) -->
+  <div class="sheet" id="sheet" hidden>
+    <div class="sheet-bg" data-action="sheet-close"></div>
+    <div class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+      <div class="sheet-nav">
+        <button class="l" data-action="sheet-close">Abbrechen</button>
+        <h2 id="sheetTitle"></h2>
+        <button class="r" id="sheetSave">Sichern</button>
+      </div>
+      <div class="sheet-body" id="sheetBody"></div>
+    </div>
+  </div>
+
+  <!-- Hinweis „Zum Home-Bildschirm“ (wird per JS nur im mobilen Browser gezeigt) -->
+  <aside class="install" id="install" hidden aria-label="App installieren"></aside>
+
+  <input type="file" id="importFile" accept="application/json,.json" hidden />
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Reihenfolge wichtig: Konfiguration → Hilfen → Speicher → Logik → Oberfläche → PWA → Start -->
+  <script src="./js/config.js"></script>
+  <script src="./js/utils.js"></script>
+  <script src="./js/storage.js"></script>
+  <script src="./js/sync.js"></script>
+  <script src="./js/budget.js"></script>
+  <script src="./js/ui.js"></script>
+  <script src="./js/pwa.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+</html>
